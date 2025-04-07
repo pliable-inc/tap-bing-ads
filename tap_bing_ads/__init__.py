@@ -195,7 +195,6 @@ def create_sdk_client(service, account_id):
     return CustomServiceClient(service, authorization_data=authorization_data)
 
 def sobject_to_dict(obj):
-    LOGGER.info(json.dumps(obj))
     # Convert response of soap to dictionary
     if not hasattr(obj, '__keylist__'):
         return obj
@@ -671,7 +670,7 @@ def sync_accounts_stream(account_ids, catalog_item):
 @bing_ads_error_handling
 def sync_campaigns(client, account_id, selected_streams): # pylint: disable=inconsistent-return-statements
     # CampaignType defaults to 'Search', but there are other types of campaigns
-    response = client.GetCampaignsByAccountId(AccountId=account_id, CampaignType='Audience')
+    response = client.GetCampaignsByAccountId(AccountId=account_id, CampaignType='Search Shopping DynamicSearchAds Audience Hotel')
     response_dict = sobject_to_dict(response)
     LOGGER.info('Campaigns Resp')
     LOGGER.info(json.dumps(response_dict))
