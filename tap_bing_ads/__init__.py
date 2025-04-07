@@ -674,9 +674,9 @@ def sync_campaigns(client, account_id, selected_streams): # pylint: disable=inco
     LOGGER.info(type(response))
     response_dict = sobject_to_dict(response)
     LOGGER.info('Campaigns Resp')
-    LOGGER.info(response_dict['Campaigns'])
-    if 'Campaigns' in response_dict:
-        campaigns = response_dict['Campaigns']
+    LOGGER.info(response_dict)
+    if 'Campaign' in response_dict:
+        campaigns = response_dict['Campaign']
 
         if 'campaigns' in selected_streams:
             selected_fields = get_selected_fields(selected_streams['campaigns'])
