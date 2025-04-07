@@ -195,6 +195,7 @@ def create_sdk_client(service, account_id):
     return CustomServiceClient(service, authorization_data=authorization_data)
 
 def sobject_to_dict(obj):
+    LOGGER.info(json.dumps(obj))
     # Convert response of soap to dictionary
     if not hasattr(obj, '__keylist__'):
         return obj
