@@ -671,7 +671,7 @@ def sync_accounts_stream(account_ids, catalog_item):
 def sync_campaigns(client, account_id, selected_streams): # pylint: disable=inconsistent-return-statements
     # CampaignType defaults to 'Search', but there are other types of campaigns
     response = client.GetCampaignsByAccountId(AccountId=account_id, CampaignType='Search Shopping DynamicSearchAds Audience Hotel')
-    LOGGER.info(response)
+    LOGGER.info(type(response))
     response_dict = sobject_to_dict(response)
     LOGGER.info('Campaigns Resp')
     if 'Campaign' in response_dict:
