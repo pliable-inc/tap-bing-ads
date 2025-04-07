@@ -278,7 +278,7 @@ def get_array_type(array_type):
 
 def get_complex_type_elements(inherited_types, wsdl_type):
     ## inherited type
-    if isinstance(wsdl_type.rawchildren[0].rawchildren[0], suds.xsd.sxbasic.Extension): # pylint: disable=no-else-return
+    if wsdl_type.rawchildren[0].rawchildren and isinstance(wsdl_type.rawchildren[0].rawchildren[0], suds.xsd.sxbasic.Extension): # pylint: disable=no-else-return
         abstract_base = wsdl_type.rawchildren[0].rawchildren[0].ref[0]
         if abstract_base not in inherited_types:
             inherited_types[abstract_base] = set()
